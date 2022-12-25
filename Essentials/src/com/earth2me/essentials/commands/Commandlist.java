@@ -87,6 +87,10 @@ public class Commandlist extends EssentialsCommand
 				{
 					if (!first)
 					{
+						if(groupString.length() +2 > 119){
+							sender.sendMessage(groupString.toString());
+							groupString = new StringBuilder();
+						}
 						groupString.append(", ");
 					}
 					else
@@ -95,11 +99,23 @@ public class Commandlist extends EssentialsCommand
 					}
 					if (user.isAfk())
 					{
+						if(groupString.length() + "§7[AFK]§f".length() > 119){
+							sender.sendMessage(groupString.toString());
+							groupString = new StringBuilder();
+						}
 						groupString.append("§7[AFK]§f");
 					}
 					if (user.isHidden())
 					{
+						if(groupString.length() + "§7[HIDDEN]§f".length() > 119){
+							sender.sendMessage(groupString.toString());
+							groupString = new StringBuilder();
+						}
 						groupString.append("§7[HIDDEN]§f");
+					}
+					if(groupString.length() + user.getDisplayName().length() +2 > 119){
+						sender.sendMessage(groupString.toString());
+						groupString = new StringBuilder();
 					}
 					groupString.append(user.getDisplayName());
 					groupString.append("§f");
@@ -128,6 +144,10 @@ public class Commandlist extends EssentialsCommand
 			{
 				if (!first)
 				{
+					if(onlineUsers.length() + 2 > 119){
+						sender.sendMessage(onlineUsers.toString());
+						onlineUsers = new StringBuilder();
+					}
 					onlineUsers.append(", ");
 				}
 				else
@@ -136,11 +156,23 @@ public class Commandlist extends EssentialsCommand
 				}
 				if (user.isAfk())
 				{
+					if(onlineUsers.length() + "§7[AFK]§f".length() > 119){
+						sender.sendMessage(onlineUsers.toString());
+						onlineUsers = new StringBuilder();
+					}
 					onlineUsers.append("§7[AFK]§f");
 				}
 				if (user.isHidden())
 				{
+					if(onlineUsers.length() + "§7[HIDDEN]§f".length() > 119){
+						sender.sendMessage(onlineUsers.toString());
+						onlineUsers = new StringBuilder();
+					}
 					onlineUsers.append("§7[HIDDEN]§f");
+				}
+				if(onlineUsers.length()+user.getDisplayName().length()+2 > 119){
+					sender.sendMessage(onlineUsers.toString());
+					onlineUsers = new StringBuilder();
 				}
 				onlineUsers.append(user.getDisplayName());
 				onlineUsers.append("§f");
